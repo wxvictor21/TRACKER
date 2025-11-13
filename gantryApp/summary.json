@@ -1,0 +1,24 @@
+{
+  "extract_dir": "/mnt/data/gantry-main",
+  "top_level": [
+    "gantry-main",
+    "tree.txt"
+  ],
+  "num_files": 10,
+  "tree_preview": [
+    "gantry-main/__pycache__/camera_module.cpython-311.pyc",
+    "gantry-main/__pycache__/grbl_module.cpython-311.pyc",
+    "gantry-main/cam.py",
+    "gantry-main/camera_module.py",
+    "gantry-main/captura.png",
+    "gantry-main/grbl_module.py",
+    "gantry-main/main.py",
+    "gantry-main/templates/base.html",
+    "gantry-main/templates/gallery.html",
+    "gantry-main/templates/index.html"
+  ],
+  "found_flask_files": [
+    "gantry-main/main.py"
+  ],
+  "inspections": {}
+}

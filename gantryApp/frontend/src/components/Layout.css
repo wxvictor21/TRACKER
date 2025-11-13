@@ -1,0 +1,15 @@
+:root {
+  --header-bg-color: white;
+  --header-text-color: #333;
+  --button-bg-color: #6c757d;
+  --button-hover-bg-color: #5a6268;
+  --text-color: #333;
+  --light-gray: #f8f9fa;
+  --border-color: #dee2e6;
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  margin: 0;
+  background-color: var(--light-gray);
+}

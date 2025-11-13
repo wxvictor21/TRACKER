@@ -1,0 +1,8 @@
+names:
+- NO-Safety Vest
+- Person
+- Safety Vest
+nc: 3
+test: C:\Users\Victor Navarro\.cache\kagglehub\datasets\snehilsanyal\construction-site-safety-image-dataset-roboflow\versions\3\css-data\test
+train: C:\Users\Victor Navarro\.cache\kagglehub\datasets\snehilsanyal\construction-site-safety-image-dataset-roboflow\versions\3\css-data\train
+val: C:\Users\Victor Navarro\.cache\kagglehub\datasets\snehilsanyal\construction-site-safety-image-dataset-roboflow\versions\3\css-data\valid

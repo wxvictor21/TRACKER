@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Control de la Cabina</h1>
+
+<div class="section">
+  <h2>Mover cámara manualmente</h2>
+  <form id="moveForm">
+    X: <input type="number" step="1" id="x" name="x">
+    Y: <input type="number" step="1" id="y" name="y">
+    <button type="submit">Mover y capturar</button>
+  </form>
+</div>
+
+<div class="section">
+  <h2>Captura en secuencia</h2>
+  <form id="sequenceForm">
+    Número de tomas: <input type="number" min="1" id="num_shots" name="num_shots" value="4">
+    <button type="submit">Iniciar secuencia</button>
+  </form>
+</div>
+
+<div class="section">
+  <h2>Última foto</h2>
+  <div>
+    <img id="lastPhoto" src="/latest_photo" width="640">
+  </div>
+</div>
+
+<div class="section">
+  <h3>Resultado del comando</h3>
+  <pre id="result"></pre>
+</div>
+
+<script>
+document.getElementById("moveForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const x = document.getElementById("x").value;
+  const y = document.getElementById("y").value;
+
+  const res = await fetch("/move", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({x, y})
+  });
+
+  const data = await res.json();
+  document.getElementById("result").textContent = JSON.stringify(data, null, 2);
+
+  if (data.photo_url) {
+    document.getElementById("lastPhoto").src = data.photo_url + "?t=" + Date.now();
+  }
+});
+
+document.getElementById("sequenceForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const num_shots = document.getElementById("num_shots").value;
+
+  const res = await fetch("/sequence", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({num_shots})
+  });
+
+  const data = await res.json();
+  document.getElementById("result").textContent = JSON.stringify(data, null, 2);
+
+  if (data.photos && data.photos.length > 0) {
+    document.getElementById("lastPhoto").src = data.photos[data.photos.length - 1] + "?t=" + Date.now();
+  }
+});
+</script>
+{% endblock %}

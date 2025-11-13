@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8f9fa; /* Lighter Gray */
+}
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #ffffff; /* White */
+  padding: 20px 40px; /* Consistent padding */
+  color: #0d1b2a; /* Dark Blue-Gray */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #dee2e6; /* Light Gray Border */
+  position: fixed; /* Fix header to top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100; /* Ensure header is on top */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.App-header h1 {
+  margin: 0;
+  font-weight: 700;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.logo {
+  height: 40px; /* Adjusted logo height */
+  width: auto;
+}
+
+main {
+  padding: 20px;
+  padding-top: 80px; /* Add padding to main to account for fixed header height */
+}
+
+.status-bar {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 20px auto;
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+  max-width: 600px;
+}
+
+.status-bar p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #495057; /* Mid Gray */
+}
+
+.inspect-button {
+  background-color: #0077b6; /* Primary Blue */
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 30px;
+  transition: background-color 0.3s ease;
+}
+
+.inspect-button:hover {
+  background-color: #023e8a; /* Darker Blue */
+}
+
+h2 {
+  color: #0d1b2a; /* Dark Blue-Gray */
+  font-weight: 700;
+}
+
+.photos-taken-time {
+  font-size: 16px;
+  color: #495057;
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
+
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px; /* Increased gap */
+  margin-top: 5px; /* Move down */
+}
+
+.image-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Added back */
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  padding: 20px; /* Increased padding */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  color: white;
+}
+
+.image-item-red {
+  background-color: rgba(255, 0, 0, 0.7); /* Max Red, faded */
+}
+
+.image-item-red:hover {
+  background-color: rgba(255, 0, 0, 0.9); /* Max Red, less faded on hover */
+}
+
+.image-item-green {
+  background-color: rgba(0, 255, 0, 0.7); /* Max Green, faded */
+}
+
+.image-item-green:hover {
+  background-color: rgba(0, 255, 0, 0.9); /* Max Green, less faded on hover */
+}
+
+.image-gallery img {
+  border-radius: 10px; /* Rounded corners for images */
+  width: 350px; /* Increased image width */
+  height: 350px; /* Increased image height */
+  object-fit: cover;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.image-green-border {
+  box-shadow: 0 0 40px 15px rgba(144, 238, 144, 0.4); /* Smoother Green glow */
+}
+
+.image-filename {
+  margin-top: 10px;
+  font-size: 24px; /* Made bigger */
+  color: rgb(0, 0, 0);
+  text-transform: uppercase; /* All caps */
+}
+
+.image-full-filename {
+  font-size: 18px; /* Smaller font size */
+  color: rgb(0, 0, 0);
+  margin-top: 5px; /* Adjust margin */
+}
+
+.clock-container {
+  position: fixed;
+  top: 80px; /* Adjust based on header height */
+  right: 20px;
+  color: #0d1b2a; /* Dark Blue-Gray */
+  font-size: 1.0em; /* Smaller than before */
+  font-weight: bold;
+  text-align: right; /* Align content to the right */
+}
+
+.datetime-wrapper {
+  width: 100%; /* Ensure it takes full width */
+}
+
+.current-date {
+  font-size: 1.2em; /* Smaller than before, but still bigger than time */
+  margin-bottom: 3px; /* Reduced space */
+}
+
+.current-time {
+  margin: 0;
+  font-size: 0.9em; /* Smaller than before */
+}
+
+/* Zoomed Image Styles */
+.zoomed-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Dimmed background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's on top */
+}
+
+.zoomed-image {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); /* Prominent shadow */
+}
+
+.app-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #007bff; /* Blue color */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  z-index: 100; /* Ensure it's above other content */
+  border: none;
+  cursor: pointer;
+}
+
+.app-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Styles for Overall Performance section (moved from GraphPage.css) */
+.graph-section {
+  background-color: #ffffff;
+  padding: 30px; /* Increased padding */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px; /* Add margin back for vertical spacing */
+  width: 1600px; /* Consistent with image-item width */
+  max-width: 1600px; /* Consistent with image-item width */
+  text-align: center;
+  margin: 20px auto; /* Center the section */
+}
+
+.graph-section h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.objective-text {
+  font-weight: bold;
+  color: #0056b3; /* Darker blue for better visibility */
+  margin-bottom: 15px; /* Increased margin */
+  font-size: 1.3em; /* Increased font size */
+}
+
+.graph-data {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 auto 30px auto; /* Centered */
+  text-align: center;
+  width: 100%; /* Fill parent graph-section */
+  max-width: none; /* Remove max-width constraint */
+  display: flex; /* Horizontally disposed */
+  justify-content: space-around; /* Distribute content */
+  box-sizing: border-box; /* Include padding in width */
+}
+
+.graph-data p {
+  margin: 5px 0;
+  font-size: 1.2em; /* Increased font size */
+}
+
+.bar-chart {
+  display: flex;
+  width: 100%; /* Fill parent graph-section */
+  max-width: none; /* Remove max-width constraint */
+  height: 60px; /* Increased height */
+  border-radius: 8px;
+  /* Removed overflow: hidden; */
+  margin: 20px auto; /* Centered within graph-section */
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+  position: relative; /* Added for objective line positioning */
+  box-sizing: border-box; /* Include padding in width */
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 0.9em;
+  transition: width 0.5s ease-in-out;
+  z-index: 1; /* Ensure bars are below objective line */
+}
+
+.good-bar {
+  background-color: #28a745; /* Green */
+}
+
+.bad-bar {
+  background-color: #dc3545; /* Red */
+}
+
+.objective-line {
+  position: absolute;
+  top: 0; /* Position at the top of the bar-chart */
+  bottom: 0;
+  width: 2px; /* Thin vertical line */
+  background-color: #007bff; /* Blue for objective */
+  z-index: 2; /* Ensure it's above the bars */
+  transform: translateX(-50%); /* Center the line on its left position */
+}
+
+.objective-pointer-triangle {
+  position: absolute;
+  bottom: 100%; /* Position above the bar chart */
+  margin-bottom: 5px; /* Small gap */
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 10px solid #0056b3; /* Darker blue triangle for objective, pointing down */
+  transform: translateX(-50%) rotate(0deg); /* Rotate to point down */
+  z-index: 4; /* Ensure it's on top of other triangles and bars */
+}

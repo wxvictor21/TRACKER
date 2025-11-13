@@ -1,0 +1,10 @@
+gantry-main/__pycache__/camera_module.cpython-311.pyc
+gantry-main/__pycache__/grbl_module.cpython-311.pyc
+gantry-main/cam.py
+gantry-main/camera_module.py
+gantry-main/captura.png
+gantry-main/grbl_module.py
+gantry-main/main.py
+gantry-main/templates/base.html
+gantry-main/templates/gallery.html
+gantry-main/templates/index.html

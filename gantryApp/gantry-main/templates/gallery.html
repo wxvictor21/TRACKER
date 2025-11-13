@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Galería de Fotos</h1>
+
+{% if photos %}
+<div>
+  {% for photo in photos %}
+    <div style="display:inline-block; text-align:center;">
+      <img src="/photos/{{photo}}" width="320"><br>
+      {{ photo }}
+    </div>
+  {% endfor %}
+</div>
+{% else %}
+<p>No hay fotos capturadas todavía.</p>
+{% endif %}
+
+{% endblock %}
